@@ -29,6 +29,9 @@ public class Login {
 		ChromeOptions option = new ChromeOptions();
 		option.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver(option);
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		lp = new LoginPage(driver);
 		
@@ -53,6 +56,7 @@ public class Login {
 	public void user_clicks_on_login_button() {
 		
 		lp.clickLoginBtn();
+//		ap = new AdminPage(driver);
 		
 	}
 
@@ -60,6 +64,7 @@ public class Login {
 	public void page_title_should_be(String string) {
 		ap = new AdminPage(driver);
 		Assert.assertTrue(ap.checkPageTitle().equals(string));
+		System.out.println("Admin page title verified");
 	}
 
 	@Then("User clicks on logout button")

@@ -1,34 +1,23 @@
 
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Customer feature
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+Scenario Outline: Add new customer
+    Given User launch chrome browser
+    When User opens URL "https://admin-demo.nopcommerce.com/login"
+    And User enters email "admin@yourstore.com" and Password "admin"
+    And User clicks on login button
+    Then Page title should be "Dashboard / nopCommerce administration"
+		When User clicks on dashboard customer
+		And User clicks on customer subtab
+		And User clciks on Add new button
+		And User Click enters Customer Info "<emailid>""<passwrd>""<firstname>""<lastname>""<gender>""<dob>""<companyname>""<taxexemptyes>""<NewLetter>""<CutomerRole>""<ManageVendor>""<Comment>"
+		And User Click on save button
+		Then User confirmation message should appear
+		Then User clicks on logout button
+    Then User close the browser
+		
+Examples:
+|emailid|passwrd|firstname|lastname|gender|dob|companyname|taxexemptyes|NewLetter|CutomerRole|ManageVendor|Comment|
+|Test1.test@Test.com|test1|ftest1|ltest1|male|1/1/2023|MS|yes|Your store name|Administrators|Vendor 1|Comment1|
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
 
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
-
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
