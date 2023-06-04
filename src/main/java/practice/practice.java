@@ -44,12 +44,12 @@ public class practice {
 		
 		
 		Actions action = new Actions(driver);
-		action.moveToElement(ele).click().sendKeys("Your store name").build().perform();
-		ele.sendKeys(Keys.ENTER);
+		action.moveToElement(ele).click().sendKeys("Your store name").sendKeys(Keys.ENTER).build().perform();
+//		ele.sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
-		action.moveToElement(ele2).click().sendKeys("Guests").build().perform();
-		ele2.sendKeys(Keys.ENTER);
-		Thread.sleep(2000);
+		action.moveToElement(ele2).click().sendKeys("Guests").sendKeys(Keys.ENTER).build().perform();
+//		ele2.sendKeys(Keys.ENTER);
+		Thread.sleep(5000);
 		action.moveToElement(ele3).click().sendKeys("Vendor 2").build().perform();
 		ele3.sendKeys(Keys.ENTER);
 		Thread.sleep(2000);

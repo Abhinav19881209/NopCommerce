@@ -9,10 +9,9 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = "D:\\Selenium project\\Selenium_Tutorial_2023\\Selenium_Practice_2024\\Feature\\Customer.feature",
 		glue ={"stepDefinition"},
-		dryRun = false,
+		dryRun = true,
 		plugin = { "pretty", "html:target/NopCommerce/Customerfeature.html" }
 		)
-
 
 
 public class TestRunner2024 {

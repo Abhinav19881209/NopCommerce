@@ -15,7 +15,6 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
 	@FindBy(xpath="//input[@id='Email']")
  	private WebElement emailadd;
 	
@@ -30,6 +29,7 @@ public class LoginPage {
 	
 	@FindBy(xpath = "//li[text()='The credentials provided are incorrect']")
 	private WebElement crederrormsg;
+	
 	
 	public void enterEmailid(String emailid) {
 		

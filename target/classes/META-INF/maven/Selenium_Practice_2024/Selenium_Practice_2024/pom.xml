@@ -99,6 +99,11 @@
 </dependency>
 
 
+  	<dependency>
+  		<groupId>Maven_Project_Practice</groupId>
+  		<artifactId>Maven_Project_Practice</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 
   <build>

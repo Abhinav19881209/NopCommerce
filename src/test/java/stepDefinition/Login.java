@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,18 +15,18 @@ public class Login {
 	
 	public WebDriver driver;
 	
-	LoginPage lp ;
+	public LoginPage lp ;
 	
-	AdminPage ap ;
+	public AdminPage ap ;
+	
+	public CustomerPage cp ;
 	
 	private String URL = "https://admin-demo.nopcommerce.com/login";
 	
 	@Given("User launch chrome browser")
 	public void user_launch_chrome_browser() {
 	 
-//		WebDriverManager.chromedriver().setup();
-//		
-//		driver = new ChromeDriver();
+		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions option = new ChromeOptions();
 		option.addArguments("--remote-allow-origins=*");
@@ -56,8 +58,7 @@ public class Login {
 	public void user_clicks_on_login_button() {
 		
 		lp.clickLoginBtn();
-//		ap = new AdminPage(driver);
-		
+
 	}
 
 	@Then("Page title should be {string}")
@@ -91,4 +92,80 @@ public class Login {
 	    driver.close();
 	    driver.quit();
 	}
+	
+	@When("User clicks on dashboard customer")
+	public void user_clicks_on_dashboard_customer() {
+		
+		cp = new CustomerPage(driver);
+		cp.clickOnCutomerMenu();
+		
+	}
+	@When("User clicks on customer subtab")
+	public void user_clicks_on_customer_subtab() {
+		
+		cp = new CustomerPage(driver);
+		cp.clickOnCutomerlist();
+	}
+
+	@When("User clciks on Add new button")
+	public void user_clciks_on_add_new_button() {
+	   
+		cp.clcikOnAddBtn();
+	}
+
+	@When("User Click enters Customer Info {string}{string}{string}{string}{string}{string}{string}{string}{string}{string}{string}{string}")
+	public void user_click_enters_customer_info(String emailid, String password, String fname, String lname, 
+			String gender, String dob, String companyname, String texexempt, String newsletter, String custrole, String vendor, String comment) throws Exception {
+		cp.enterEmailID(emailid);
+		cp.enterPassword(password);
+		cp.enterFirstName(fname);
+		cp.enterLastName(lname);
+		cp.clickOnGender(gender);
+		cp.entersDOB(dob);
+		cp.enterCompanyName(companyname);
+		cp.clickOnIsTaxExempt(texexempt);
+		cp.enterNewLetter(newsletter);
+		cp.enterCustomerRole(custrole);
+		cp.managerOfVendor(vendor);
+		cp.clickOnActive();
+		cp.enterAdminComment(comment);
+			
+	}
+
+	@When("User Click on save button")
+	public void user_click_on_save_button() {
+	  
+		cp.clickOnsaveButton();
+	}
+
+	@Then("User confirmation message should appear")
+	public void user_confirmation_message_should_appear() {
+			
+		Assert.assertTrue(cp.getSuccessmsg().contains("The new customer has been added successfully."));
+	}
+	
+	//search the customer and deleted
+	
+	@When("Search with an email")
+	public void search_with_an_email() {
+	 
+	}
+
+	@When("Select and click on edit in search result")
+	public void select_and_click_on_edit_in_serach_result() {
+	   
+		
+	}
+
+	@When("Delete the record")
+	public void delete_the_record() {
+	    
+		
+	}
+
+	@When("User validate the deleted record")
+	public void user_validate_the_deleted_record() {
+	   
+	}
+	
 }

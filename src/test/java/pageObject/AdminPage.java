@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import practice.Utilities;
+//import practice.Utilities;
 
 
 public class AdminPage{

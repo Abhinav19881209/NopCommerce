@@ -2,10 +2,13 @@ package practice;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class Utilities {
 	
@@ -22,14 +25,17 @@ public class Utilities {
 //	WebElement ele = null;
 	
 	Actions action;
+	
+	Select select;
 		
-	public void actionMethodToEnterText(WebElement element,String text) {
+	public void actionMethodToEnterText(WebElement element,String text) throws Exception {
 		
 		Actions action = new Actions(driver);
 		action.moveToElement(element)
 		.click()
 		.sendKeys(text)
 		.perform();
+		pressEnterkey();
 		System.out.println("action method successful");
 	}
 	
@@ -41,9 +47,15 @@ public class Utilities {
 		System.out.println("action method successful");
 	}
 	
+	public void pressEnterkey() throws AWTException {
+		
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_ENTER);
+	}
+	
 	public void selectfromDropdown(WebElement element,String visibleText) {
 		
-		Select select = new Select(element);
+		select = new Select(element);
 		
 		List <WebElement> option = select.getOptions();
 		
@@ -60,4 +72,7 @@ public class Utilities {
 			
 	}
 		
+	
+	
+	
 }

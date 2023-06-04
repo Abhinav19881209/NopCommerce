@@ -1,72 +1,48 @@
 package stepDefinition;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-
 import io.cucumber.java.en.*;
-import pageObject.AdminPage;
-import pageObject.CustomerPage;
+import pageObject.*;
 
 public class Customer {
 	
 	public WebDriver driver;
-	AdminPage ap  ;
-	CustomerPage cp;
 	
-	@When("User clicks on dashboard customer")
-	public void user_clicks_on_dashboard_customer() throws Exception {
-		
-//		ap = new AdminPage(driver);
-		cp = new CustomerPage(driver);
-		
-//		Thread.sleep(5000);
-		cp.clickOnCutomer();
-		
-	}
+	CustomerPage cp ;
+	
+//	@When("User clicks on dashboard customer")
+//	public void user_clicks_on_dashboard_customer() {
+//	
+//		cp.clickOnCutomerMenu();
+//		
+//	}
 
-	@When("User clicks on customer subtab")
-	public void user_clicks_on_customer_subtab() {
-		ap.clickOnCutomerList();
-
-	}
-
-	@When("User clciks on Add new button")
-	public void user_clciks_on_add_new_button() {
+//	@When("User clicks on customer subtab")
+//	public void user_clicks_on_customer_subtab() {
+//		
 //		cp = new CustomerPage(driver);
-		cp.clickOnAddButton();
-		
-	}
+//		cp.clickOnCutomerlist();
+//	}
+//
+//	@When("User clciks on Add new button")
+//	public void user_clciks_on_add_new_button() {
+//	   
+//		cp.clcikOnAddBtn();
+//	}
+//
+//	@When("User Click enters Customer Info {string}{string}{string}{string}{string}{string}{string}{string}{string}{string}{string}{string}")
+//	public void user_click_enters_customer_info(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12) {
+//	
+//	}
+//
+//	@When("User Click on save button")
+//	public void user_click_on_save_button() {
+//	  
+//	}
+//
+//	@Then("User confirmation message should appear")
+//	public void user_confirmation_message_should_appear() {
+//
+//	}
 
-	@When("User Click enters Customer Info")
-	public void user_click_enters_customer_info(String email,String pwd,String fname,String lname,
-			String gender,String dob,String Companyname,String taxexempt,
-			String newsletter,String custrole,String venornme,String Commnent) {
-		
-		cp.enterEmailID(email);
-		cp.enterPassword(pwd);
-		cp.enterFirstName(fname);
-		cp.enterLastName(lname);
-		cp.clickOnGender(gender);
-		cp.entersDOB(dob);
-		cp.enterCompanyName(Companyname);
-		cp.clickOnIsTaxExempt(taxexempt);
-		cp.enterNewLetter(newsletter);
-		cp.enterCustomerRole(custrole);
-		cp.managerOfVendor(venornme);
-		cp.clickOnActive();
-		cp.enterAdminComment(Commnent);
-		
-	}
-
-	@When("User Click on save button")
-	public void user_click_on_save_button() {
-		cp.clickOnsaveButton();
-		
-	}
-
-	@Then("User confirmation message should appear")
-	public void user_confirmation_message_should_appear() {
-
-		Assert.assertTrue(cp.getSuccessmsg().equalsIgnoreCase("The new customer has been added successfully."));
-	}
 }
