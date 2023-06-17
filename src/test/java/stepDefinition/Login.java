@@ -2,11 +2,15 @@ package stepDefinition;
 
 import static org.junit.Assert.assertTrue;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.*;
@@ -23,17 +27,27 @@ public class Login {
 	
 	private String URL = "https://admin-demo.nopcommerce.com/login";
 	
-	@Given("User launch chrome browser")
-	public void user_launch_chrome_browser() {
-	 
-		WebDriverManager.chromedriver().setup();
+	@Before
+	public void setUp() {
 		
+		WebDriverManager.chromedriver().setup();
 		ChromeOptions option = new ChromeOptions();
 		option.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver(option);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	
+	@After
+	public void tearDown() {
+		driver.close();
+		driver.quit();	
+	}
+	
+	
+	@Given("User launch chrome browser")
+	public void user_launch_chrome_browser() {
 		
 		lp = new LoginPage(driver);
 		

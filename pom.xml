@@ -10,8 +10,7 @@
 
   <name>Selenium_Practice_2024</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -20,13 +19,21 @@
 
   <dependencies>
    
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.7.1</version>
     <scope>test</scope>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-testng</artifactId>
+    <version>7.12.0</version>
 </dependency>
 
 
@@ -36,13 +43,7 @@
     <artifactId>cucumber-java</artifactId>
     <version>7.12.0</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-junit</artifactId>
-    <version>7.12.0</version>
-    <scope>test</scope>
-</dependency>
+
 <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
 <dependency>
     <groupId>io.cucumber</groupId>
@@ -95,15 +96,10 @@
 <dependency>
     <groupId>io.github.bonigarcia</groupId>
     <artifactId>webdrivermanager</artifactId>
-    <version>5.3.2</version>
+    <version>5.3.3</version>
 </dependency>
 
 
-  	<dependency>
-  		<groupId>Maven_Project_Practice</groupId>
-  		<artifactId>Maven_Project_Practice</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
   </dependencies>
 
   <build>

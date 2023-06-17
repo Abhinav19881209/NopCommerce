@@ -254,17 +254,37 @@ public class CustomerPage {
 		
 		List<WebElement> element = driver.findElements(By.xpath("//table[@id='customers-grid']/tbody/tr"));
 		
-		List<String> emaillist = new ArrayList<String>();
+//		List<String> emaillist = new ArrayList<String>();
 		
 		for(int i = 1;i<=element.size();i++) {
 			
 			String email = driver.findElement(By.xpath("//table[@id='customers-grid']/tbody/tr["+i+"]/td[2]")).getText();
-			emaillist.add(email);	
+//			emaillist.add(email);
+			
+			if(email.equalsIgnoreCase(custEmail)) {
+				
+				driver.findElement(By.xpath("//table[@id='customers-grid']/tbody/tr["+i+"]/td[7]")).click();
+				break;
+			}
+				
 		}
-		
-		
 
 	}
+	
+	
+	@FindBy(xpath = "//*[@id='customer-delete']")
+	private WebElement deletebutton;
+	
+	@FindBy(xpath = "//*[@id='customer-delete']")
+	private WebElement popupdeletebutton;
+	
+	
+	public void deleteTheEnteredData() {
+		
+		deletebutton.click();
+		
+	}
+	
 
 }
 

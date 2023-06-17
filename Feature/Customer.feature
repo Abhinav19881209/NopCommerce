@@ -22,6 +22,7 @@ Examples:
 |Test6.test@Test.com|test1|ftest1|ltest1|Female|1/1/2024|apple|no|Your store name|Guests|Vendor 1|Comment2|
 |Test7.test@Test.com|test1|ftest1|ltest1|male|1/1/2025|Oracle|yes|Your store name|Guests|Vendor 2|Comment3|
 
+@Search
 Scenario Outline: Search the Added customer
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
